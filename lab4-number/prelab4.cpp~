@@ -1,0 +1,22 @@
+#inclide <iostream>
+#include <string>
+
+using namespace std;
+
+int main(){
+  sizeOfTest(){
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    cout<<"sizeof() unsigned int is: "<<sizeof(unsigned int n)<<endl;
+    /*
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    cout<<"sizeof() int is: "<<sizeof(int n)<<endl;
+    */
+  }
+
+  return 0;
+}

@@ -1,0 +1,8 @@
+/**
+Name: Tho Nguyen
+Email ID: tnn7yc
+File name:difficulties.txt
+Date:9/20/18
+*/
+
+Each part of the lab I encountered different problems. For the pre lab, my problem was to correctly use the stack given by c++ library. I avoided running into too many errors at the same time by implementing each method one by one to make sure this one compiles and runs correcly frist before moving to the next one. Then for in lab, I have problem handling c++ string. My code for read in a string and convert it into int worked logically on paper test but did not give me the correct number. I tried to figure this out by print out everything and realized that atoi() deal with C-style string, which is stored in an array. Then for in lab, I implemented my own stack and stacknode. When I compiled and ran *.cpp, it took in number and I had segmentation fault. Based on my experience from last lab, this happened because I did not give a pointer a momery location before assigning value to it. So I went back and declared a constructor for my PostficCalculator object (which I didn't have when I implemented the stack in c++ libary for pre and in lab). So why did it work without constructor before but not now you asked? (This is very basic but fundamental I realized) It is because when I use the stack from c++ library, the stack I declared for my PostfixCalc was an OBJECT, while the stack I declared for the PostfixCalculator that implements my stack was a pointer! So I have to give my stack pointer a memory location with a constructor!

@@ -1,0 +1,19 @@
+c005	000		jmp	start	skip around vars
+3012	001	n	dw	3011	int n
+3002	002	loadit	dw	3000	
+0001	003	one	dw	1		
+3000	004	load	dw	3000
+3004	005	start	load	load		loadit = 3000
+4002	006		store	loadit 
+3001	007	loop	load	n	while n > loadit
+6002	008		sub	loadit	
+e012	009		jmpl	xit
+3002	00a		load	loadit	form inst
+400c	00b		store	doload	plant inst
+300c	00c	doload	dw		300b
+1800	00d		print
+3002	00e		load	loadit
+5003	00f		add	one
+4002	010		store	loadit
+c007	011		jmp	loop
+0000	012	xit	

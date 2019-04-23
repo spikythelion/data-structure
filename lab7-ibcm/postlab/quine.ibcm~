@@ -1,0 +1,20 @@
+c006	000		jmp	start	skip around var
+0001	001	i	dw	1	int i
+0019	002	n	dw	?	int n
+1800	003	printit	dw	1800
+0000	004	zero	dw	0
+0001	005	one	dw	1
+3004	006	start	load	zero	i = 0
+4001	007		store	i
+3002	008	loop	load	n	i < n
+6001	009		sub	i
+e013	00a		jmpl	xit
+d013	00b		jmpe	xit
+3003	00c		load	printit	form inst
+5001	00d		add	i
+400f	00e		store	doprint
+180f	00f	doprint	dw	180f
+3001	010		load	i	i += 1
+5005	011		add	one
+c008	012		jmp	loop
+0000	013	xit

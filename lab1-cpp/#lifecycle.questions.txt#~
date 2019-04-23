@@ -1,0 +1,10 @@
+/**
+Name: Tho Nguyen
+Email ID: tnn7yc
+File name:
+Date:
+*/
+
+1. It looks like the default constructor is called before main(). Is it because C++ is programmed to always call the default constructor first?
+
+2. 

@@ -1,0 +1,27 @@
+#include "ListItr.h"
+
+using namespace std;
+
+int main(){
+  ListNode* ln1= new ListNode();
+  ListNode* ln2= new ListNode();
+  ListNode* ln3= new ListNode();
+  ListNode* ln4= new ListNode();
+
+  ln4->next= ln2;
+  
+  ln2->value= 3;
+  ln2->previous= ln1;
+  ln2->next= ln3;
+  
+  ln3->value= 7;
+  ln3->previous= ln2;
+  ln3->next= ln4;
+
+  ln4->previous= ln3;
+
+  ListItr* lt= new ListItr(ln2);
+
+  return 0;
+}
+  

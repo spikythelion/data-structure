@@ -1,0 +1,122 @@
+/**
+Name: Tho Nguyen
+Email ID: tnn7yc
+File name:postfixCalculator.cpp
+Date:9/18/18
+*/
+
+
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include "postfixCalculator.h"
+
+void PostfixCalculator::pushNum(int n){
+  s.push(n);
+}
+
+void PostfixCalculator::add(){
+  int sum= getTopValue();
+  removeTopValue();
+  sum+= getTopValue();
+  removeTopValue();
+  s.push(sum);
+}
+
+void PostfixCalculator::subtract(){
+  int sub= getTopValue();
+  removeTopValue();
+  sub= getTopValue()- sub;
+  removeTopValue();
+  s.push(sub);
+}
+
+void PostfixCalculator::multiply(){
+  int product= getTopValue();
+  removeTopValue();
+  product*= getTopValue();
+  removeTopValue();
+  s.push(product);
+}
+
+void PostfixCalculator::divide(){
+  if (getTopValue()==0){
+    cout<<"Trying to divide by 0"<<endl;
+    exit(-1);
+  }
+  int quotient= getTopValue();
+  removeTopValue();
+  quotient= getTopValue()/quotient;
+  removeTopValue();
+  s.push(quotient);
+}
+
+void PostfixCalculator::unaryNeg(){
+  int un= getTopValue();
+  removeTopValue();
+  s.push(un*(-1));
+}
+
+int PostfixCalculator::getTopValue(){
+  if(s.empty()){
+    cout<<"Stack is empty"<<endl;
+    exit(-1);
+  }
+  return s.top();
+}
+
+void PostfixCalculator::removeTopValue(){
+  if(s.empty()){
+    cout<<"Stack is empty"<<endl;
+    exit(-1);
+  }
+  s.pop();
+}
+
+void PostfixCalculator::readString(string& str){
+  int i=0;
+  int num=0;
+  string cStr= str.c_str();
+  bool isNum= false;
+  //case 1: number
+  while(i<str.length() && isdigit(str[i])){
+    isNum= true;
+    ++i;
+  }
+  if(isNum){
+    num= atoi(&cStr[0]);
+    pushNum(num);
+  }
+  
+  //case 2: - or negative number
+  if(str[i] == '-'){
+    //2.1 subtract
+    if (str.length()==1)
+      subtract();
+    //2.2 negative number
+    else{
+      ++i;
+      while(i<str.length() && isdigit(str[i])){
+	isNum=true;
+	++i;
+      }
+      num= atoi(&cStr[1])*-1;
+      pushNum(num);
+    }
+  }
+  
+  //case 3: +, *, /
+  if(str.length()==1){
+    //+
+    if(str=="+")
+      add();
+    //*
+    if(str=="*")
+      multiply();
+     // /
+    if(str=="/")
+      divide();
+    if(str=="~")
+      unaryNeg();
+  }
+}

@@ -1,0 +1,16 @@
+#ifndef STACKNODE_H
+#def STACKNODE_H
+
+#include <iostream>
+
+using namespace std;
+
+class stackNode{
+ public:
+  stackNode();
+  stackNode(int n);
+ private:
+  int value;
+  stackNode* next;
+  friend class stack;
+};

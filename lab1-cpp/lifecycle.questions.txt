@@ -1,0 +1,14 @@
+/**
+Name: Tho Nguyen
+Email ID: tnn7yc
+File name:lifecycle.questions.txt
+Date:9/4/18
+*/
+
+1. It looks like the default constructor is called before main(). Is it because C++ is programmed to always call the default constructor first?
+
+2. I noticed there is a '&' after some argumemts (ex. MyObject&). The reading states that this refers to pass by reference. Does this mean method with MyObject& parameter changes that object in that dedicated memory space while one with just MyObject copy paste values of that object and change just those value? 
+
+3. Following question 2, the constructor MyObject(const MyObject& rhs) has const. What does this const do?
+
+4. In char *n= "--default--", what does * do to n?

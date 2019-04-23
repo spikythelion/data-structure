@@ -1,0 +1,34 @@
+c00a	000	jmp			skip around the variables
+0000	001	i	dw	0    	int i
+0000	002	max	dw	0	int max
+000a	003	a	dw	a	int a[]
+0005	004	n	dw	5	int n = 5
+0000	005	zero	dw	0
+0001	006	one	dw 	1
+6000	007 	subit	dw	6000
+0000	008				leave space for changes
+0000	009
+3005	00a		load	zero	i = 0, max = 0
+4001	00b		store	i
+4002	00c		store	max
+3004	00d 	loop	load 	n
+6001	00f		sub	i
+e020	010		jmpl	xit
+d020	011		jmpe	xit
+3007	012		load	subit
+5003	013		add	a
+5001	014		add	i
+4017	015		store	doit	plant inst into the code
+3002	016		load	max
+0000	017	doit	dw	0
+e01d	018		jmpl	switch
+3001 	019		load	i	i += 1
+5006	01a		add	one
+4001	01b		store	i
+c00d	01c		jmp	loop
+3017	01d	switch	load	doit
+4002	01e		store	max
+c019	01f		jmp		jump back inside loop at load 1
+3002	020	xit	load	max
+1800	021		printH
+0000	022		halt

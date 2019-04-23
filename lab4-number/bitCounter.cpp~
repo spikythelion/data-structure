@@ -1,0 +1,28 @@
+#include <string>
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int bitCount(int n);
+
+int main (int argc, char **argv){
+  if (argc<2){
+    cout<<"No input received. Exit now!"<<endl;
+    exit(-1);
+  }
+  int n= atoi(argv[1]);
+  int count= bitCount(n);
+  cout<<"Number of 1s in "<<argv[1]<<"'s binary representation is "<<count<<endl;
+  return 0;
+} 
+
+int bitCount(int n){
+  if(n==1)
+    return 1;
+  if(n%2==0)
+    return bitCount(n/2);
+  else
+    return bitCount(floor(n/2))+1;
+}
+    

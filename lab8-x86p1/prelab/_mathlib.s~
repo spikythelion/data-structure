@@ -1,0 +1,35 @@
+	global _product	,
+	global _power
+
+	section .text
+
+_product:
+	xor 	rax, rax	; zero out the return register
+	xor 	r10, r10	; zero out the counter i
+
+loop:
+	cmp 	r10, rsi	; does i < y
+	jge	done
+	add	rax, rdi	; rax = rax + x
+	inc	r10		; i++
+	jmp 	loop
+
+_power:
+	cmp	0, rsi		; y == 0?
+	je 	ret1		; return 1
+	push 	rdi		; push x on stack
+	dec	rsi		; y -= 1
+	jmp	_power
+	mov	rsi, rax
+	jmp 	_product
+	pop	rdi
+	jmp	done
+	
+ret1:
+	mov 	rax, 1
+	ret
+	
+done:
+	ret
+	
+

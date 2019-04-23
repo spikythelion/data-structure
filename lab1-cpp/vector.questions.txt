@@ -1,0 +1,13 @@
+/**
+Name: Tho Nguyen
+Email ID: tnn7yc
+File name: vector.questions.txt
+Date:9/4/18
+*/
+
+1. The push_back() method is not defined in svutil.cpp. So is this a C++ built in method for vector<>(same for po_back)?
+
+2. In svDeleteAt method, the last space in the vector is deleted and the element at the index (if not deleted) will be at the index of the deleted element. Then the updated vector is printed out with the previously last element comes first. What if I want to keep the elements at their original indices without having to sort it? Does C++ offer any inexpensive structure for that?
+
+3. Can there be an object type vector? Like vector<Object>?
+ 

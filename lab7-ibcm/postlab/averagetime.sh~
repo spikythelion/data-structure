@@ -1,0 +1,9 @@
+#!/bin/bash
+clang++ counter.cpp
+echo "Enter the exponent for counter.cpp:"
+read e
+if [[ ${e} == "quit" ]]; then
+    echo "Exit averagetime.sh"
+    exit 0
+fi
+

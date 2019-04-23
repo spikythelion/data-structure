@@ -1,0 +1,14 @@
+/**
+Name: Tho Nguyen
+Email ID: tnn7yc
+File name: postlab1.questions.txt
+Date: 9/6/18
+*/
+
+1. If the link is pointing away from the tail, does it mean when a method wants to go through each element of the link (ex. find method), it will go from tail to head?
+
+2. What does "template <class T>" do? It kind of reminds me of interface methods in Java...
+
+3. How does tail linked to head?
+
+

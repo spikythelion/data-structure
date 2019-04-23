@@ -1,0 +1,14 @@
+#include <iostream>
+#include "stackNode.h"
+
+using namespace std;
+
+stackNode::stackNode(){
+  value= NULL;
+  next= NULL;
+}
+
+stackNode::stackNode(int n){
+  value= n;
+  next= NULL;
+}

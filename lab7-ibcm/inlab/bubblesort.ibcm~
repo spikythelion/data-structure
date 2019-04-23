@@ -1,0 +1,76 @@
+c010	000			jmp	start		start skip around variables
+0000	001	i		dw	0		int i
+0000	002	j		dw	0		int j
+0000	003	temp		dw	0		int temp
+0047	004	a		dw	0047		array base 
+0005	005	n		dw	0005		array size
+0000	006	zero		dw	0
+0000	007	one		dw	1
+6000	008	subit		dw	6000
+3000	009	loadj		dw	3000
+4000	00a	storej		dw	4000
+3000	00b	loadj-1		dw	3000
+4000	00c	storej-1	dw	4000
+0000	00d						leave space for changes
+0000	00e
+0000	00f
+3005	010	start		load	zero		i = 0
+4001	011			store	i
+3005	012			load	n
+6007	013			sub	1		j = n - 1
+4002	014			store	j
+3005	015	oloop		load	n
+6001	016			sub	i		if ( i >= n ) go to xit
+e03d	017			jmpl	xit
+d03d	018			jmpe	xit
+3002	019	iloop		load	j	
+6001	01a			sub	i		if ( i >= j) go to ixit
+e039	01b			jmpl	ixit
+d039	01c			jmpe	ixit
+3009	01d			load	loadj		form the load a[j] inst
+5004	01e			add	a
+5002	01f			add	j
+4035	020			store	doloadj		plant load a[j] inst into the code
+403e	021			store	swap		plant load a[j] inst into the code
+300a	022			load	storej	      	form the store a[j] inst
+5004	023			add	a
+5002	024			add	j
+4041	025			store	dostorej	plant store a[j] inst into the code
+3002	026			load	j		j -= 1
+6007	027			sub	1
+4002	028			store	j
+3008	029			load	subit		form the sub a[j-1] inst
+5004	02a			add	a
+5002	02b			add	j
+4036	02c			store	dosub		plant sub a[j-1] inst into the code
+300b	02d			load	loadj-1		form the load a[j-1] inst
+5004	02e			add	a
+5002	02f			add	j
+4040	030			store	doloadj-1	plant load a[j-1] inst into the code
+300c	031			load	storej-1	form the store a[j-1] inst
+5004	032			add	a
+5002	033			add	j
+4043	034			store	dostorej-1	plant the stora a[j-1] inst into the code
+0000	035	doloadj		dw
+0000	036	dosub		dw
+e03e	037			jmpl	swap		if ( a[j] < a[j-1] ) go to swap
+c019	038			jmp	iloop		go to iloop
+3001	039	ixit		load	i		i += 1
+5007	03a			add	1
+4001	03b			store	i
+c015	03c			jmp	oloop
+0000	03d	xit		halt
+0000	03e	swap		dw
+4003	03f			store	temp
+0000	040	doloadj-1	dw
+0000	041	dostorej	dw
+3003	042			load	temp
+0000	043	dostorej-1	dw
+c038	044			jmp
+0000	045						leave space for changes
+0000	046
+0030	047						array starts here
+00e0	048
+000d	049
+0002	04a
+02e0	04b						array ends here
